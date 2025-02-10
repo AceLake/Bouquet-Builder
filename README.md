@@ -48,7 +48,7 @@ I chose Firebase as my database mainly because of its compatibility with Flutter
 
 ## **Physical Solution Design**  
 
-![Bouquet Builder Design](INSERT_IMAGE_URL_HERE)  
+<img width="734" alt="image" src="https://github.com/AceLake/Assemblage-Flutter/assets/96988100/e9422bfe-7091-4182-b059-7360ffc8db3d">  
 
 ### **Description**  
 
@@ -86,7 +86,8 @@ This section outlines the **architectural and technical considerations** necessa
 
 ## **Database Structure Diagram**  
 
-![Database Structure](INSERT_IMAGE_URL_HERE)  
+![Database Structure Diagram drawio](https://github.com/user-attachments/assets/8e6f84c2-137d-46b7-be92-d76b9fbad887)
+
 
 This diagram illustrates the **relationship between different data entities in Firebase**. Given that Firebase is a **NoSQL database**, traditional table-based relational models aren’t used. Instead, a **NoSQL Entity Relationship Diagram (ERD)** helps visualize how **users, bouquets, flowers, and orders** interact within the system.  
 
@@ -95,8 +96,7 @@ Each **user** can create and manage multiple **bouquets**, each bouquet contains
 ---
 
 ## **Sitemap**  
-
-![Sitemap](INSERT_IMAGE_URL_HERE)  
+![BB_Sitemap drawio (1)](https://github.com/user-attachments/assets/a6aabb87-fe1a-45ea-8b41-2f7720cfa7ed)
 
 ### **Description**  
 
