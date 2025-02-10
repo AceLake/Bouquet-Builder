@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/6f688fda-c470-4cc6-ab61-f55ab53dff5b)
+
 # Bouquet-Builder
 Bouquet Builder is a user-friendly app designed for florists who want to craft beautiful floral arrangements effortlessly. Whether you're designing a bouquet for a special occasion or using standard recipes, this app simplifies the process with intuitive tools and customization options.
 
@@ -106,8 +108,9 @@ Each **user** can create and manage multiple **bouquets**, each bouquet contains
 - 🔴 **Red:** Delete operations (e.g., removing a bouquet or flower from the inventory).  
 - 🔵 **Blue:** Non-CRUD features (e.g., static pages, settings, and navigation).  
 
-### **Navigation Flow**  
+### **Navigation Flow** 
+
 When the app launches, users are directed to the **login page**. New users can register directly from this screen. Once logged in, they are taken to the **home page**, where they can browse, create, or manage bouquets.  
 
 The app maintains a **consistent navigation structure**:  
-- A **bottom navigation bar** provides quick access to core pages.  
+- A **bottom navigation bar** provides quick access to core pages.
