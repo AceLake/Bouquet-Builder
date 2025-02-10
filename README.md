@@ -111,4 +111,3 @@ When the app launches, users are directed to the **login page**. New users can r
 
 The app maintains a **consistent navigation structure**:  
 - A **bottom navigation bar** provides quick access to core pages.  
-- An **app bar** at the top enables access to **profile settings and additional features**.
