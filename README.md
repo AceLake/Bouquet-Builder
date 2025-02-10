@@ -46,364 +46,69 @@ Putting on my developer hat, Dart is the main programming language that I wanted
 I chose Firebase as my database mainly because of its compatibility with Flutter apps as well as easy storage of images and Google authentication and the fact that they are Google technologies which means they will have a lot of support and documentation to learn from.
 
 
-## Physical Solution Design
+## **Physical Solution Design**  
 
-<img width="734" alt="image" src="https://github.com/AceLake/Assemblage-Flutter/assets/96988100/e9422bfe-7091-4182-b059-7360ffc8db3d">
+![Bouquet Builder Design](INSERT_IMAGE_URL_HERE)  
 
+### **Description**  
 
-### Description
+#### **Physical Solution Design**  
+The Physical Solution Design provides an overview of the actual development environment used to build **Bouquet Builder**. The code is developed using **Visual Studio Code (VS Code)** on the host device, ensuring an efficient and robust cross-platform development workflow. This setup allows for thorough testing on both simulated and physical devices, ensuring a seamless experience across different platforms.  
 
-#### Physical Solution Design
-The Physical Solution Design provides a representation of the actual physical development environment for the app. The code is created using Visual Studio Code (VS Code) on the host device. This setup ensures a robust testing and development environment, allowing for efficient cross-platform development and thorough testing on both simulated and physical devices.
+#### **Android Testing**  
+Android testing is performed on a **Windows PC** using **Android Studio** to run the Android emulator. VS Code detects the active simulator, allowing for efficient deployment and debugging within the Android environment.  
 
-#### Android testing
-Currently, Android testing is conducted on a Windows PC, utilizing the Android Studio for running the Android simulator. VS Code seamlessly detects the running simulator and facilitates deployment onto the simulated Android environment.
+#### **iOS Testing**  
+iOS testing is conducted on a **MacBook**, utilizing the iPhone simulator via **Xcode**. VS Code seamlessly integrates with the simulator, enabling deployment and testing throughout the development cycle.  
 
-#### IOS testing
-Similarly, iOS testing is performed on a MacBook, employing the iPhone simulator through Xcode. VS Code efficiently recognizes the simulated iOS device, enabling deployment during the development process.
+#### **Physical Testing**  
+For wired testing on real devices, **Xcode** builds the application and deploys it onto a physically connected iPhone. This process ensures the app functions as expected on actual hardware.  
 
-#### Physical testing
-For wired connections, Xcode builds the application and deploys it onto a physically connected iPhone, streamlining the testing process on real iOS devices.
+---
 
-## Detailed Technical Design
-This section will hold all of the diagrams to help the development team understand what is needed to develop the application to industry standards. This is conveyed through the use of diagrams and descriptions surrounding the given diagrams to help with interpretation.
- 
-### General Technical Approach
-The structure of Bouquet Builder should be built for adaptability for different types of data as well as an overall structure to create a multi-platform experience. Also, Bouquet Builder should be built with ease of use in mind. The application should be set up to store massive amounts of data
+## **Detailed Technical Design**  
+This section outlines the **architectural and technical considerations** necessary to build **Bouquet Builder** to industry standards. It includes diagrams and descriptions to provide clear guidance on the app’s structure and implementation.  
 
-### Key Technical Design Decisions:
-Bouquet Builder will use the Flutter framework with Dart as its primary programming language. The database is Firebase which is a Non-relational database. 
+### **General Technical Approach**  
+**Bouquet Builder** is designed with **adaptability** in mind, allowing for flexible data structures while maintaining a user-friendly experience. The app is built to **handle large datasets efficiently**, making it well-suited for florists managing extensive inventories of flowers, vases, and bouquet designs.  
 
-The reason why I wanted to use Flutter for the framework for my application was to support cross-platform to give more users the ability to find and use the app. Flutter's main hook is that it allows for the app to be used with a variety of different platforms.
+### **Key Technical Design Decisions**  
+- **Framework:** Flutter  
+- **Programming Language:** Dart  
+- **Database:** Firebase (NoSQL)  
 
-Dart was chosen for its object-oriented nature which allows the app to be more scalable.
+#### **Why These Choices?**  
+- **Flutter** was chosen for its cross-platform capabilities, allowing the app to run seamlessly on both iOS and Android with a single codebase.  
+- **Dart** provides an **object-oriented structure**, making the app scalable and maintainable.  
+- **Firebase** is a **NoSQL database**, which enables the app to handle vast amounts of data efficiently while allowing for flexible data storage and retrieval.  
 
-Firebase was chosen because of its NoSQL structure. Having NoSQL within the app will allow it to be able to store massive amounts of data while also being adaptable to store different types of data.
+---
 
-### Document Structure Diagram 
-<img width="595" alt="image" src="https://github.com/AceLake/Assemblage-Flutter/assets/96988100/8b76ca12-4b43-43bc-9cce-2596910c8034">
+## **Database Structure Diagram**  
 
-Here is how each document relates to each other in my Firebase database. Firebase is a NoSQL Database so they are not documented the same but I used a UML class diagram to create a NoSQL Entity Relational diagram. Each User holds a list of Groups they are a part of and also has a list of messages they have sent as a list of message objects. Each group has a list of message objects that represent all of the messages in that group.
+![Database Structure](INSERT_IMAGE_URL_HERE)  
 
+This diagram illustrates the **relationship between different data entities in Firebase**. Given that Firebase is a **NoSQL database**, traditional table-based relational models aren’t used. Instead, a **NoSQL Entity Relationship Diagram (ERD)** helps visualize how **users, bouquets, flowers, and orders** interact within the system.  
 
+Each **user** can create and manage multiple **bouquets**, each bouquet contains a list of **flowers and vases**, and orders track bouquet purchases or reservations.  
 
-## Sitemap
-![Assemblage Site Map drawio (1)](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/6cc9b906-e596-4f17-ac66-e2fa8cd68c99)
+---
 
-### Description
+## **Sitemap**  
 
-- Green: all of the create operations in the application.
-- Purple: all of the read operations in the application.
-- Orange: all of the update operations in the application.
-- Red: all of the delete operations in the application.
-- Blue: all of the non-CRUD features. Usually, it’s a static page or an action not connected to the database.
+![Sitemap](INSERT_IMAGE_URL_HERE)  
 
-When the application is initially launched, users will be seamlessly directed to the login page. If they are new to the platform, they can easily navigate to the registration page directly from the login page. Once users successfully log in or complete the registration process, they will be immediately redirected to the home page.
+### **Description**  
 
-Throughout the application, excluding the login and registration pages, users have 5 common pages they can navigate to. At the bottom of the screen, a navigational bar provides access to 4 core pages of the app, ensuring easy and convenient navigation from any point within the application. Additionally, an app bar positioned at the top of the page allows users to access their profile information effortlessly.
+- 🟢 **Green:** Create operations (e.g., adding a new bouquet, flower, or vase).  
+- 🟣 **Purple:** Read operations (e.g., viewing available bouquets, order history).  
+- 🟠 **Orange:** Update operations (e.g., editing bouquet details, updating flower prices).  
+- 🔴 **Red:** Delete operations (e.g., removing a bouquet or flower from the inventory).  
+- 🔵 **Blue:** Non-CRUD features (e.g., static pages, settings, and navigation).  
 
-## Widget layout design
-### Description 
-Purple: Stateless Widget 
-<br>
-Red: List Widget 
-<br>
-Green: List Item Widget
-<br>
+### **Navigation Flow**  
+When the app launches, users are directed to the **login page**. New users can register directly from this screen. Once logged in, they are taken to the **home page**, where they can browse, create, or manage bouquets.  
 
-<details>
-  <summary>App Bar Widget</summary>
-  <p>
-   
-![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/5a49d9e3-d49f-4060-9c27-954cf515ccfd)
-- This is the default App bar view but it has many states 
-- Pulls out a drawer that logs the user out
-- Pulls out a drawer that navigates to the details page or leaves the group.
-  </p>
-</details>
-<details>
-  <summary>NavBar</summary>
-  <p>
-   
-![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/449ead43-3670-4eed-b100-f005b2471f06)
-
-- Holds Page navigation to different pages in the app. Each Icon is clickable.
-- Home Page navigation as the first icon to the left
-- Find Group navigation as the second icon to the left
-- Group Creation navigation as the 3rd icon to the left
-- Chats as the last icon furthest to the right
-- Each item in the nav bar displays the name when clicked on, so the search tab isn't the only one like that
-  </p>
-</details>
-<details>
-  <summary>Login</summary>
-  <p>
-   
-   #### GIF
-
-   ![Loggingin-ezgif com-video-to-gif-converter](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/3f2af8b3-9b08-49db-a1f5-62f72c8da03a)
-   
-   #### Component Design
-   
-   ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/32c97ef9-9e15-455d-8b46-b5ab97d5e452)
-
-
-#### Login Body
-- This widget is a stateless widget 
-- It acts as an entire page for logging in a user
-#### Username Input Text Feild
-- This widget uses a text input widget that will take in text from the user
-- For this specific widget, it will take in the text that will be compared to a username field in the user document in Firebase
-#### PasswordInput Text Feild
-- This widget uses an input widget that will take in text from the user
-- For this specific widget, it will take in the text that will be compared to a username field in the user's document in Firebase
-#### Submit Button
-- This is a button widget
-- This button initializes the login and checks if the user with that username and password exists.
-#### Go to Register
-- This is a link widget
-- It will route the user to the registration page if clicked
-  </p>
-</details>
-
-<details>
-  <summary>Registration</summary>
-  <p>
-   
-   #### GIF
-   
-  ![Registration-ezgif com-video-to-gif-converter](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/76ff12cd-65d4-4754-8336-f625f271767e)
-  
-  #### Component Design
-   ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/1d2c17bc-2fd8-4b96-b470-dc730b5fb10d)
-
-#### Registration body
-- This is a stateless widget
-- It holds all of the widgets needed for registering a user
-#### Username Input
-- Text input widget
-- The username entered will check if that is usable
-- If it isn't usable it will not allow the user to use that username
-- It will add a user with the given username when submitted
-#### Password input
-- Text input widget
-- The password entered will check if that is usable
-- If it isn't usable it will not allow the user to use that password 
-- It will add a user with the given password when submitted
-#### Confirm Password Input
-- Text input widget
-- Checks if the given password matches the initial given password
-#### Register Button
-- This is a button widget
-- This button initializes the registration and adds the user to the user's list
-#### Go to Login HyperLink
-- This is a link widget
-- It will route the user to the login page if clicked
-</p>
-</details>
-
-<details>
-  <summary>Home</summary>
-  <p>
-   
-  #### GIF
-   
-  ![Loggingout-ezgif com-video-to-gif-converter](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/bd91a73e-78ce-4812-b886-c923d8b472be)
-
-  #### Component Design
-  ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/693cd8f8-8755-475c-a625-2135a24f0079)
- 
-
-  #### App Bar
-  - The description is given in the App Bar section
-  - This App bar pulls out a drawer that allows the user to logout
-
-  #### Nav Bar
-  - The description is given in the Nav Bar section
-  </p>
-</details>
-
-<details>
-  <summary>Find a group</summary>
-  <p>
-   
-  #### GIF
-   
-  ![JoiningLeaving-ezgif com-video-to-gif-converter](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/bdd0df00-3a95-4ebb-a124-03bad47300e0)
-
-  #### Component Design
-  ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/faf3f75c-1254-46ef-b65e-abb6facd54dd)
-
-#### App Bar
-- The description given in the App Bar section
-#### Group Search Body
-- Stateless widget
-- Holds all of the widgets that are needed on the Find a Group page
-#### Search Text Input 
-- Text input widget
-- The text entered will search if the group name or location matches the text given
-#### List of Groups
-- List Widget
-- Contains a list of groups that have visibility to the public
-#### Group Box 
-- Item Widget
-- Each group box contains important info
-- Group Name
-- Group Location
-- Only City and state
-- Meeting time
-- Then the concept or book the group is currently studying
-- When the see more link is clicked then it will navigate to the specific group info
-#### Nav Bar
-- The description given in the Nav Bar section
-
-  
-  </p>
-</details>
-
-<details>
-  <summary>Group Creation</summary>
-  <p>
-   
-  #### GIF
-   
-  ![GroupCreation-ezgif com-video-to-gif-converter](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/4af1f759-9462-4901-a917-728921425748)
-
-  #### Component Design
-  ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/b901216b-488b-4c95-848d-2363c7ff5a13)
-
-#### App Bar
-- The description is given in the App Bar section
-#### Create Group Body
-- Stateless Widget
-- contains all of the widgets that are needed in the Create Group Page 
-#### Group Name Input
-- Text Input Widget
-- The name given in the input relates to the group name in the database
-- on submission, this name will be set for the group
-#### About Group Input
-- Text Input Widget
-- The text given in the input relates to the group’s About section in the database
-- on submission, this About section will be set for group
-#### Group Info Input
-- Text Input Widgets
-- allows the user to input text for each section
-- Location
-- Meeting time
-- Concept or book the group is currently studying
-#### Set Group Public/Private
-- Check Box Widget
-- When checked sets the group to public
-#### Create Group Button
-- Button Widget
-- On click creates the group
-#### Nav Bar
-- The description given in the Nav Bar section
-
-  
-  </p>
-</details>
-
-<details>
-  <summary>Group Details</summary>
-  <p>
-
-  #### Component Design
-  
-  ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/b2c14379-3f8a-4f85-b55a-e9a41980eaac)
-
-#### App Bar
-- The description given in the App Bar section
-#### Group Details Body
-- This is a stateless widget
-- It contains all of the widgets that are needed
-#### Join Button
-- Button Widget
-- Once the button is clicked it will send a request to join
-#### Group Details
-- This displays more info about the group
-- Group Name
-- About the Group
-- Location
-- Meeting time
-- Then the concept or book the group is currently studying
-#### Group Members List
-- List Widget
-- Contains every member of the group
-#### Group Member
-- List Item Widget
-- Contains info about the user
-- Name
-#### Nav Bar
-- The description is given in the Nav Bar section
-
-  
-  </p>
-</details>
-
-<details>
-  <summary>My Groups</summary>
-  <p>
-   
-  #### GIF
-  ![Mygroups-ezgif com-video-to-gif-converter](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/b621cadf-87ff-4da9-ac9a-f75e114aee3d)
-
-  #### Component Design
-  ![image](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/fc699328-0938-44d6-9826-d996ae9db46f)
-
-#### App Bar
-- The description is given in the App Bar section
-#### My Groups Body
-- Stateless Widget
-- contains all of the widgets that are needed in Your Groups
-#### My Group List
-- List Widget
-- Lists off all of the groups the current user is a part of
-#### My Group List Item
-- List Item Widget
-- Displays the last message sent as well as the group name
-- On click it navigates to the messaging for that specific group
-#### Nav Bar
-- The description is given in the Nav Bar section
-
-
-  </p>
-</details>
-
-<details>
-  <summary>Chat Page</summary>
-  <p>
-
-  #### GIF
-  
-  ![Real-Time Messaging GIF](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/7b275b29-c144-4e4e-aaed-90322da00a3d)
-  
-  #### Component Design
-  
-  ![Chat Page Component Design](https://github.com/AceLake/Assemblage-Flutter/assets/96988100/00891cb7-c5ff-42e3-ac5d-6e75babced6d)
-
-#### App Bar
-- Description given in the App Bar section
-#### Group Messages Body
-- Stateless Widget
-- contains all of the widgets that are needed in Create Group Page 
-#### Group Settings 
-- Link Widget
-- On click navigate to the edit group page
-#### List of Group Messages
-- List Widget
-- This is where all of the group messages are displayed for all users in the group to see. The current user sees their messages apart from the other members in the group.
-#### Your Sent Messages
-- List Item Widget
-- These are the messages sent by the current user of the app.
-- If the message is held down allow the user to edit or delete the message
-#### Other group members' messages
-- List Item Widget
-- These are the messages sent by the other members in the group excluding the current user.
-#### Messaging Text Input
-- Text Input Widget
-- When the text in this input is sent it adds a new message to the group.
-
-  
-  </p>
-</details>
+The app maintains a **consistent navigation structure**:  
+- A **bottom navigation bar** provides quick access to core pages.  
+- An **app bar** at the top enables access to **profile settings and additional features**.
