@@ -3,24 +3,24 @@ Bouquet Builder is a user-friendly app designed for florists who want to craft b
 
 ### Problem and Background
 
-From personal experience joining a Bible study group is way harder than it should be. My experience in finding a Bible study group was 100% God's doing. In the 2nd semester of my freshman year of college, I had no friends on campus I was alone I never went to church because I was too nervous to socialize with hundreds of people, but I still wanted to study the word with others. Around this time, I met up with only 2 other guys as a study group for a math class. One of them owned a motorcycle and drove it often. One night he invited me to a Bible study group 10 minutes in advance and I said yes. It turns out that some random guy put a sticky note on my friend's bike asking him to join which made him ask me to join last minute. So long story short it was a lot harder than it should be to join a Bible study group.
+The company's workers brought the initial problem to my attention. Their old method of pricing bouquets involved manually writing down flower names and quantities on paper and then using a calculator app on their phone to determine labor percentages. This process was highly inefficient, time-consuming, mentally exhausting, and often led to inaccurate pricing. Since they had to do this almost daily when making arrangements, it gradually took the joy out of crafting beautiful floral pieces.
 
-# Project Requirements
+Now, the workers can’t stop talking about how fun and addictive it is to use the app. The convenience of the app compared to doing mental math or using pen and paper is incredible. Needless to say, gone are the days of miscalculated arrangements and outdated flower prices now, pricing is effortless and accurate. Bouquet Builder has truly transformed the way this business operates, eliminating stress and making floral design enjoyable again.
 
-## Functional and Non-Functional Requirements
-- [This is the link to the requirements spreadsheet](https://docs.google.com/spreadsheets/d/12-eE0rKsRIRkCST4E56qvA3O3NXUvT5u/edit?usp=sharing&ouid=116486810360149009769&rtpof=true&sd=true)
 
 ## Challenges
-### All new technologies
-- Having everything new to me made it really difficult from the beginning because even documenting the technologies was a challenge. I used Firebase which is a No-SQL database and I had to learn how to make an ER diagram equivalent. Also documenting for mobile development was difficult too. I had to document as if Dart wasn't an OOP language where I had to make component designs as well as detailed UMLs.
-- Styling mobile apps was foreign to me where instead of using HTML for styling I had to learn an entirely new front-end styling language. Flutter uses widgets to style the pages which was hard to make exactly what I wanted the app to look like. 
+- The first and biggest challenge in developing this app was identifying the exact problem and figuring out how to build a solution. While this might sound simple, it required me to gain a deep understanding of how bouquets are made and priced, especially on something I had no prior knowledge of. I had to learn the entire process from scratch to ensure the app effectively addressed the issue.
+- The next challenge involved people skills. I had to negotiate the app’s price while also estimating the number of work hours required to implement all the necessary features. Determining the full list of requirements was its own challenge, and translating the client’s vision into functional code proved to be far more complex than expected.
+- Finally, publishing the app to the app stores was another hurdle. While I had experience deploying applications to cloud providers, mobile apps were a completely different challenge. I wouldn’t say it was harder, just unfamiliar, which added an element of risk.
+
 
 ## Risks
-### Real-time messaging
-- I watched a video that went over how to create a messaging app with Dart and I used that as a POC for managing this risk.
+### Handling Images in the App
+- Before developing this app, I had no prior experience managing images in a Flutter application. I needed to find an efficient way to store images while minimizing storage usage to keep the app lightweight and scalable.
+  
+### Publishing the App
 
-## Issues 
-- The main issue I had wasn't coding the application it was mainly setting up the development environment. I had to install all of the SDKs and had to install emulators for both IOS and Android. Some days both Android and IOS would be working but that next morning my SDK would be out of date and would have to update all of these little technologies. My Android app stopped working for like a month and so I started only developing on IOS then I tried Android once again and worked, but I still don't know why. Sometimes it wouldn't work then I would close VS Code and re-open it and it works so it's fidgety.
+- I had never officially published an app to an app store before. One of the biggest challenges was figuring out how to set up internal testing so that the client could test the app during its early stages without exposing it to a large number of unexpected users. Navigating the publishing process was a learning experience, but it was crucial for ensuring a smooth rollout.
 
 ### Hardware and Software Technologies
 Here are all of the technologies used within the development of the application along with their versions so that if someone is brought onto the development team they will know what they need to help in development.
@@ -30,39 +30,21 @@ Here are all of the technologies used within the development of the application 
 - Android Studio Version  2022.3
 - Android SDK version 34.0.0
 - Google Pixel 3 34GB (simulator)
+- Google Pixel C 34GB (simulator)
 - MacOS 13.5
 - Xcode 15.0
 - iPhone 15 (simulator)
+- iPhone 14 (physical)
 - iPhone 8+ (physical)
-- Flutter Version 3.13.2
+- Flutter Version 3.5.0
 - Firebase
 - Visual Studio Community Version 2022 17.3.6
 - VS Code Version 1.84.2
 
 ### Why Flutter, Dart, and Firebase?
-First off I chose these technologies because they were all new to me and I wanted to learn mobile development. Puting on my developer hat, Dart is the main programming language that I wanted to use for my app and Flutter is an amazing framework for it.
-I chose Firebase as my database mainly because of its compatibility with Flutter apps and the fact that they are Google technologies which means they will have a lot of support and documentation to learn from.
+Putting on my developer hat, Dart is the main programming language that I wanted to use for my app and Flutter is an amazing framework for it.
+I chose Firebase as my database mainly because of its compatibility with Flutter apps as well as easy storage of images and Google authentication and the fact that they are Google technologies which means they will have a lot of support and documentation to learn from.
 
-## Logical System Design
-<img width="339" align="center " alt="image" src="https://github.com/AceLake/Assemblage-Flutter/assets/96988100/24fd4451-47bf-4360-8da4-79cce762c462">
-
-
-### Description
-
-#### Logical System Design
-Assemblage will be logically organized into four different logical layers. The first layer is the presentation layer, followed by the business layer, the data access layer, and finally, the database.
-
-#### Presentation Layer
-The presentation layer contains all the code that is used to be presented to the user. This includes various widgets and pages that the user can interact with. This code forms the graphical user interface (GUI).
-
-#### Business Logic Layer
-The business logic layer houses the services responsible for managing the background processes of the application. This layer serves as a middleman that utilizes the CRUD (Create, Read, Update, Delete) methods stored within the Data Access Layer.
-
-#### Data Access Layer
-The data access layer establishes connections to the database and incorporates methods responsible for querying the data to and from the database. It acts as an intermediary between the business logic layer and the database, facilitating seamless communication and data retrieval.
-
-#### Database
-The database serves as the repository for all information essential for the application's operations. It stores the data required for executing various functionalities within the system.
 
 ## Physical Solution Design
 
@@ -87,10 +69,10 @@ For wired connections, Xcode builds the application and deploys it onto a physic
 This section will hold all of the diagrams to help the development team understand what is needed to develop the application to industry standards. This is conveyed through the use of diagrams and descriptions surrounding the given diagrams to help with interpretation.
  
 ### General Technical Approach
-The structure of Assemblage should be built for adaptability for different types of data as well as an overall structure to create a multi-platform experience. Also, assemblage should be built with ease of use in mind. The application should be set up to store massive amounts of data
+The structure of Bouquet Builder should be built for adaptability for different types of data as well as an overall structure to create a multi-platform experience. Also, Bouquet Builder should be built with ease of use in mind. The application should be set up to store massive amounts of data
 
 ### Key Technical Design Decisions:
-Assemblage will use the Flutter framework with Dart as its primary programming language. The database is Firebase which is a Non-relational database. 
+Bouquet Builder will use the Flutter framework with Dart as its primary programming language. The database is Firebase which is a Non-relational database. 
 
 The reason why I wanted to use Flutter for the framework for my application was to support cross-platform to give more users the ability to find and use the app. Flutter's main hook is that it allows for the app to be used with a variety of different platforms.
 
